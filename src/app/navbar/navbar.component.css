@@ -1,0 +1,112 @@
+/*------------------------------------------BARRA SUPERIOR---------------------------*/
+/*Estilo general de la barra superior*/
+.topnav{
+    background-color: white;
+    border-bottom: 1px solid #d8d8d8;
+    overflow: hidden;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
+}
+
+/*Estilo de los elementos a la derecha*/
+.topnav-right{
+    float:right;
+}
+
+/*Estilo de cada elemento de la barra*/
+.topnav a{
+    float: left;
+    display: block;
+    margin: 10px 5px;
+    border-radius: 15px;
+    color: rgb(110, 110, 110);
+    text-align: center;
+    padding: 5px 10px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: all 0.2s ease;
+}
+
+/*Estilo de cada elemento al pasar el cursor encima*/
+.topnav a:hover{
+    background-color: #eff7ff;
+    color: black;
+}
+
+/*Estilo de el elemento de la pagina actual*/
+.topnav .active{
+    color: white;
+    background-color: #008cff;
+}
+
+/*Estilo de la foto de perfil*/
+.avatar{
+    vertical-align: middle;
+    width: 30px;
+    border-radius: 50%;
+    margin: -3px;
+    margin-left: 3px;
+}
+
+/*Estilo del nombre de usuario*/
+.username{
+    display: inline;
+}
+
+/*-----------------------------BARRA INFERIOR----------------*/
+
+/*Estilo general de la barra inferior*/
+.bottomnav{
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid #d8d8d8;
+    overflow: auto;
+    bottom: 0;
+    position: fixed;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
+}
+
+/*Estilo de los elementos de la barra inferior*/
+.bottomnav a{
+    display: none;
+    float: left;
+    text-align: center;
+    width: 25%;
+    padding: 0px 12px;
+    transition: all 0.2s ease;
+    color: rgb(110, 110, 110); /* White text color */
+    font-size: 25px;
+    text-decoration: none;
+}
+
+/*Estilo de los textos de la barra inferior*/
+.bottomnav p{
+    font-size: 13px;
+    margin: 0;
+    text-align: center;
+}
+
+/*Estilo del elemento activo de la barra inferior*/
+.bottomnav .active{
+    color: #008cff;
+}
+
+/*-----------------------BREAKPOINT--------------------------*/
+@media screen and (max-width: 600px){
+    .bottomnav a:not(:last-child){
+        display: block;
+    }
+
+    .topnav a:not(:last-child){
+        display:none;
+    }
+
+    .username{
+        display: none;
+    }
+
+}
