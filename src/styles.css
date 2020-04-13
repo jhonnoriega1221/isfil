@@ -1,3 +1,8 @@
+router-outlet ~ * { /* Reglas de estilo para la animación */
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
 .container{ /* Este es para la navbar no tape el contenido de la pagina */
     padding-top: 70px;
     padding-bottom: 90px;
