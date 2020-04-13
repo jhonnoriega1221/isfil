@@ -1,8 +1,8 @@
 <nav>
     <!------------------------------------BARRA SUPERIOR--------------------------------------->
     <nav class="topnav">
-        <a href=# class="active">Dashboard</a>
-        <a href=#>Pagina 2</a>
+        <a [routerLink]="['/dashboard']" routerLinkActive="active">Dashboard</a>
+        <a [routerLink]="['/pagina2']" routerLinkActive="active">Pagina 2</a>
         <a href=#>Pagina 3</a>
         <div class="topnav-right">
             <a href=#>Buscar</a>
@@ -14,8 +14,8 @@
     </nav>
     <!------------------------------------BARRA INFERIOR--------------------------------------->
     <nav class="bottomnav">
-        <a href="#" class="active"><i class="fa fa-home"></i><p>Dashboard</p></a>
-        <a href="#"><i class="fa fa-home"></i><p>Pagina 2</p></a>
+        <a [routerLink]="['/dashboard']" routerLinkActive="active"><i class="fa fa-home"></i><p>Dashboard</p></a>
+        <a [routerLink]="['/pagina2']" routerLinkActive="active"><i class="fa fa-home"></i><p>Pagina 2</p></a>
         <a href="#"><i class="fa fa-home"></i><p>pagina 3</p></a>
         <a href="#"><i class="fa fa-home"></i><p>Buscar</p></a>
         <a></a> <!-- <---------------------------IGNORAR ESTE a--------------------------->
