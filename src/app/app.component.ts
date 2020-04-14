@@ -7,6 +7,5 @@ import { fadeAnimation } from './animations/fade.animation';
   styleUrls: ['./app.component.css'],
   animations: [fadeAnimation]
 })
-export class AppComponent {
-  title = 'inventariolab';
+export class AppComponent {  
 }
