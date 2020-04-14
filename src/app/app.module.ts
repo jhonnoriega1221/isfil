@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { Pagina2Component } from './pagina2/pagina2.component';
+import { ArticulosComponent } from './articulos/articulos.component';
 import { Error404Component } from './error404/error404.component';
 
 @NgModule({
@@ -16,7 +16,7 @@ import { Error404Component } from './error404/error404.component';
     AppComponent,
     NavbarComponent,
     DashboardComponent,
-    Pagina2Component,
+    ArticulosComponent,
     Error404Component
   ],
   imports: [
