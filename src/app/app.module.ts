@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ArticulosComponent } from './articulos/articulos.component';
 import { Error404Component } from './error404/error404.component';
+import { FormAgregarComponent } from './form-agregar/form-agregar.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { Error404Component } from './error404/error404.component';
     DashboardComponent,
     ArticulosComponent,
     Error404Component,
+    FormAgregarComponent,
   ],
   imports: [
     BrowserModule,
