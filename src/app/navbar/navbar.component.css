@@ -14,6 +14,7 @@
 /*Estilo de los elementos a la derecha*/
 .topnav-right{
     float:right;
+
 }
 
 /*Estilo de cada elemento de la barra*/
@@ -34,8 +35,8 @@
 .topnav .top-add{
     color: white;
     background-color: #005aa3;
-    font-size: 14px;
-    padding-bottom: 4px;
+    font-size: 12px;
+    margin-top: 14px;
 }
 
 /*Estilo de cada elemento al pasar el cursor encima*/
