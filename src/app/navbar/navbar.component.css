@@ -39,7 +39,7 @@
 }
 
 /*Estilo de cada elemento al pasar el cursor encima*/
-.topnav button:hover{
+.topnav a:hover{
     background-color: #eff7ff;
     color: black;
 }
