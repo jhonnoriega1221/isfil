@@ -19,9 +19,9 @@ import { ListHistorialComponent } from './view/list-historial/list-historial.com
     NavbarComponent,
     DashboardComponent,
     Error404Component,
-    FormRegistrarActivoComponent,
     ListActivoComponent,
     ListHistorialComponent,
+    FormRegistrarActivoComponent
   ],
   imports: [
     BrowserModule,

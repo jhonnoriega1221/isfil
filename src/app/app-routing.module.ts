@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { ListActivoComponent} from './view/list-activo/list-activo.component';
 import { ListHistorialComponent} from './view/list-historial/list-historial.component';
-import { FormRegistrarActivoComponent} from './view/form-registrar-activo/form-registrar-activo.component';
 import { Error404Component } from'./view/error404/error404.component';
 
 
