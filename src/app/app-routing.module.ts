@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ArticulosComponent } from './articulos/articulos.component';
-import { Error404Component } from'./error404/error404.component';
+import { DashboardComponent } from './view/dashboard/dashboard.component';
+import { ListActivoComponent} from './view/list-activo/list-activo.component';
+import { ListHistorialComponent} from './view/list-historial/list-historial.component';
+import { FormRegistrarActivoComponent} from './view/form-registrar-activo/form-registrar-activo.component';
+import { Error404Component } from'./view/error404/error404.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch:'full' },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'articulos', component: ArticulosComponent},
+  { path: 'activos', component: ListActivoComponent },
+  { path: 'historial', component: ListHistorialComponent },
   { path: 'error404', component: Error404Component},
   { path: '**', redirectTo: 'error404', pathMatch:'full'}
 ];

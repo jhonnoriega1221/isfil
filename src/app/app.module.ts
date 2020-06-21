@@ -6,20 +6,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { NavbarComponent } from './navbar/navbar.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ArticulosComponent } from './articulos/articulos.component';
-import { Error404Component } from './error404/error404.component';
-import { FormAgregarComponent } from './form-agregar/form-agregar.component';
+import { NavbarComponent } from './view/navbar/navbar.component';
+import { DashboardComponent } from './view/dashboard/dashboard.component';
+import { Error404Component } from './view/error404/error404.component';
+import { FormRegistrarActivoComponent } from './view/form-registrar-activo/form-registrar-activo.component';
+import { ListActivoComponent } from './view/list-activo/list-activo.component';
+import { ListHistorialComponent } from './view/list-historial/list-historial.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     DashboardComponent,
-    ArticulosComponent,
     Error404Component,
-    FormAgregarComponent,
+    FormRegistrarActivoComponent,
+    ListActivoComponent,
+    ListHistorialComponent,
   ],
   imports: [
     BrowserModule,

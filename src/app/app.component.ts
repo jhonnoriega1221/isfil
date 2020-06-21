@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { fadeAnimation } from './animations/fade.animation';
 
-import { Articulo } from './modelos/articulo'
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,5 +8,5 @@ import { Articulo } from './modelos/articulo'
   animations: [fadeAnimation]
 })
 export class AppComponent {  
-
+title: 'inventariolab';
 }
