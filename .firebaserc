@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "isfil-u1d2c": {
+      "hosting": {
+        "inventariolab": [
+          "isfil-u1d2c"
+        ]
+      }
+    }
+  }
+}
