@@ -1,1 +1,12 @@
-<p>list-activo works!</p>
+<div class="container">
+    <div class="list-group" *ngFor="let item of items | async">
+        <a href="#" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{item.name}}</h5>
+            <small>3 days ago</small>
+          </div>
+          <p class="mb-1"> {{item.desc}} </p>
+          <small class="text-muted">Pertenece a: {{item.lab}}. - Cantidad: <span class="badge badge-primary badge-pill"> {{item.cant}} </span> </small>
+        </a>
+      </div>
+</div>
