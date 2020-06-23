@@ -9,36 +9,77 @@
         </div>
         <!------------------------------------CONTENIDO DEL MODAL--------------------------------------->
         <div class="modal-body">
-          <!------------------------------------NOMBRE DEL ACTIVO--------------------------------------->
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">Nombre del activo</span>
-            </div>
-            <textarea class="form-control" aria-label="With textarea"></textarea>
+          <!------------------------------------VERSIÓN PC DEL AÑADIR--------------------------------------->
+          <div class="desktop-view">
+            <form>
+              <div class="row">
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="Nombre del activo">
+                </div>
+                <div class="col">
+                  <input type="number" class="form-control" placeholder="Cantidad">
+                </div>
+              </div>
+              <p class="p-1"></p>
+              <div class="row">
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="Descripción del activo">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="Funciona?">
+                </div>
+              </div>
+              <p class="p-1"></p>
+              <div class="row">
+                <div class="col">
+                  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">¿A qué Laboratorio pertenece?</label>
+                  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                    <option selected>Elegir...</option>
+                    <option value="1">Lab.Redes</option>
+                    <option value="2">Lab.Sistema</option>
+                    <option value="3">Cafeteria</option>
+                  </select> 
+                </div>
+              </div>
+            </form>
           </div>
-          <!------------------------------------NOMBRE DEL ACTIVO--------------------------------------->
-          <!------------------------------------DESC DEL ACTIVO--------------------------------------->
-          <!------------------------------------SPACER--------------------------------------->
-          <p class="p-1"></p>
-          <!------------------------------------SPACER--------------------------------------->
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">Descripción del activo</span>
-            </div>
-            <textarea class="form-control" aria-label="With textarea"></textarea>
+          <!------------------------------------VERSIÓN PC DEL AÑADIR--------------------------------------->
+          <!------------------------------------VERSIÓN MOVIL DEL AÑADIR--------------------------------------->
+          <div class="mobile-view">
+            <form>
+              <div class="row row-cols-1">
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="Nombre del activo">
+                </div>
+                <p class="p-1"></p>
+                <div class="col">
+                  <input type="number" class="form-control" placeholder="Cantidad">
+                </div>
+                <p class="p-1"></p>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="Descripción del activo">
+                </div>
+                <p class="p-1"></p>
+                <div class="col">
+                  <input type="text" class="form-control" placeholder="Funciona?">
+                </div>
+                <p class="p-1"></p>
+                <div class="col">
+                  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">¿A qué Laboratorio pertenece?</label>
+                  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                    <option selected>Elegir...</option>
+                    <option value="1">Lab.Redes</option>
+                    <option value="2">Lab.Sistema</option>
+                    <option value="3">Cafeteria</option>
+                  </select> 
+                </div>
+              </div>
+            </form>
           </div>
-          <!------------------------------------DESC DEL ACTIVO--------------------------------------->
-          <!------------------------------------SPACER--------------------------------------->
-          <p class="p-1"></p>
-          <!------------------------------------SPACER--------------------------------------->
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">Laboratorios del activo</span>
-            </div>
-            <textarea class="form-control" aria-label="With textarea"></textarea>
-          </div>
+          <!------------------------------------VERSIÓN MOVIL DEL AÑADIR--------------------------------------->
         </div>
         <!------------------------------------CONTENIDO DEL MODAL--------------------------------------->
+        <p class="p-1"></p>
         <!------------------------------------FOOTER DEL MODAL--------------------------------------->
         <div class="modal-footer">
           <button type="button" class="btn btn-success mx-auto">Añadir al inventario!</button>
