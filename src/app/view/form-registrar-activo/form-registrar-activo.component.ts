@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivoService } from '../../controller/activo.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { Activo } from '../../model/activo.model';
 
 @Component({
   selector: 'app-form-registrar-activo',
@@ -24,11 +23,11 @@ export class FormRegistrarActivoComponent implements OnInit {
 
   activosForm(){
     this.activoForm = this.fb.group({
-      ID:[''],
-      nombre:[''],
-      cantidad:['']
+      ID:['', [Validators.required]],
+      nombre:['', [Validators.required]],
+      cantidad:['',[Validators.required]]
     })
-  }
+  } 
 
   get id(){
     return this.activoForm.get('ID');
@@ -43,7 +42,12 @@ export class FormRegistrarActivoComponent implements OnInit {
   }
 
   submitActivoForm(){
+    if(this.activoForm.valid){
     this.activoService.crearActivo(this.activoForm.value);
+  }
+  else{
+    console.log("no es valido");
+  }
   }
 
 
