@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { AngularFireModule } from "@angular/fire";
+import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { environment } from '../environments/environment';
@@ -18,6 +19,7 @@ import { FormRegistrarActivoComponent } from './view/form-registrar-activo/form-
 import { ListActivoComponent } from './view/list-activo/list-activo.component';
 import { ListHistorialComponent } from './view/list-historial/list-historial.component';
 import { SignInComponent } from './view/sign-in/sign-in.component';
+import { initializeApp } from 'firebase';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { SignInComponent } from './view/sign-in/sign-in.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFirestoreModule  
 
