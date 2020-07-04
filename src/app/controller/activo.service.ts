@@ -15,6 +15,7 @@ export class ActivoService {
 
   crearActivo(activo:Activo){
     return this.firestore.collection('activo').add(activo);
+    
   }
 
   updateActivo(activo:Activo){

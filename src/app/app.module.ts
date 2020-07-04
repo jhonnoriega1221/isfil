@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { ReactiveFormsModule} from'@angular/forms';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -34,6 +36,7 @@ import { initializeApp } from 'firebase';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
