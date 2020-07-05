@@ -4,7 +4,12 @@
         <li class="list-group-item d-flex justify-content-between align-items-center">
           {{activo.nombre}}
           <span class="badge badge-primary badge-pill">{{activo.cantidad}}</span>
+          <button (click)="setSelectedID(activo)" type="button" data-toggle="modal" data-target="#editFormModal" class="btn btn-info btn-sm">Editar</button>
+          <button (click)="delete(activo.id)" class="btn btn-danger btn-sm"> Dar de baja </button>
         </li>
       </ul>
+
+      <app-form-modificar-activo [refActivo]="refActivo"></app-form-modificar-activo>
+
 
 </div>

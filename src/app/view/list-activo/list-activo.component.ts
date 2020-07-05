@@ -10,11 +10,12 @@ import { Activo } from '../../model/activo.model';
 export class ListActivoComponent implements OnInit {
 
   activos: Activo[];
+  refActivo: Activo;
 
   constructor(private activoService: ActivoService) { }
 
   ngOnInit(): void {
-    this.activoService.getActivo().subscribe(data => {
+    this.activoService.getActivos().subscribe(data => {
       this.activos = data.map(e => {
         return{
           id: e.payload.doc.id,
@@ -22,6 +23,10 @@ export class ListActivoComponent implements OnInit {
         } as Activo;
       })
     });
+  }
+
+  setSelectedID (refActivo: Activo){
+    this.refActivo=refActivo;
   }
 
   create (activo:Activo){

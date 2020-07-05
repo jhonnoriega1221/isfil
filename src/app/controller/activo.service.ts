@@ -9,8 +9,12 @@ export class ActivoService {
 
   constructor(private firestore: AngularFirestore) {  }
 
-  getActivo(){
+  getActivos(){
     return this.firestore.collection('activo').snapshotChanges();
+  }
+
+  getActivo(activoId:number){
+    this.firestore.doc('activo/' +activoId).get();
   }
 
   crearActivo(activo:Activo){

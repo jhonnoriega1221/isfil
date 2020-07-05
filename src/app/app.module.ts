@@ -22,6 +22,7 @@ import { ListActivoComponent } from './view/list-activo/list-activo.component';
 import { ListHistorialComponent } from './view/list-historial/list-historial.component';
 import { SignInComponent } from './view/sign-in/sign-in.component';
 import { initializeApp } from 'firebase';
+import { FormModificarActivoComponent } from './view/form-modificar-activo/form-modificar-activo.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { initializeApp } from 'firebase';
     ListActivoComponent,
     ListHistorialComponent,
     FormRegistrarActivoComponent,
-    SignInComponent
+    SignInComponent,
+    FormModificarActivoComponent
   ],
   imports: [
     BrowserModule,

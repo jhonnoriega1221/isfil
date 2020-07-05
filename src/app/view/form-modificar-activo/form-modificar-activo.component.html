@@ -1,11 +1,11 @@
-<div class="modal fade" id="addFormModal" tabindex="-1" role="dialog" aria-labelledby="registrarActivo" aria-hidden="true">
+<div class="modal fade" id="editFormModal" tabindex="-1" role="dialog" aria-labelledby="editarActivo" aria-hidden="true">
     <div style="box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);"
     class="modal-dialog modal-lg">
-      <div class="modal-content">
+      <div *ngIf="refActivo" class="modal-content">
 
           <!--header-->
         <div class="modal-header">
-          <h5 class="modal-title" id="registrarActivo">Registrar activo</h5>
+          <h5 class="modal-title" id="editarActivo">Editar activo {{refActivo.nombre}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -13,7 +13,6 @@
 
         <!------form------->
         <div class="modal-body">
-
           <form [formGroup]="activoForm" (ngSubmit)="submitActivoForm()" novalidate>
             <div class="form-group">
               <label for="idActivo">Id</label>
@@ -38,24 +37,25 @@
       </div>
       
     </div>
-  </div>
 
-  <div *ngIf="!activoForm.valid" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div style="box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);" class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Error</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          Debe llenar to2 los cuadros no sea imbecil.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">O.. Ok... programa-san :(</button>
+    <div *ngIf="!activoForm.valid" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div style="box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);" class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Error</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Debe llenar to2 los cuadros no sea imbecil.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">O.. Ok... programa-san :(</button>
+          </div>
         </div>
       </div>
     </div>
+    
   </div>
-  
+

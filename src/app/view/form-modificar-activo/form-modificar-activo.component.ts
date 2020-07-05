@@ -1,20 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, RendererFactory2 } from '@angular/core';
 import { ActivoService } from '../../controller/activo.service';
+import { Activo } from '../../model/activo.model';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-form-registrar-activo',
-  templateUrl: './form-registrar-activo.component.html',
-  styleUrls: ['./form-registrar-activo.component.css']
+  selector: 'app-form-modificar-activo',
+  templateUrl: './form-modificar-activo.component.html',
+  styleUrls: ['./form-modificar-activo.component.css']
 })
-export class FormRegistrarActivoComponent implements OnInit {
+export class FormModificarActivoComponent implements OnInit {
 
   public activoForm: FormGroup;
+
+
+  @Input() refActivo:Activo;
 
   constructor(
     private activoService: ActivoService,
     public fb: FormBuilder
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.activoService.getActivos();
@@ -22,13 +26,14 @@ export class FormRegistrarActivoComponent implements OnInit {
   }
 
   activosForm(){
-    this.activoForm = this.fb.group({
+    this.activoForm =    this.fb.group({
       ID:['', [Validators.required]],
-      nombre:['', [Validators.required]],
+      nombre:[this.texto, [Validators.required]],
       cantidad:['',[Validators.required]]
     })
   } 
 
+  
   get id(){
     return this.activoForm.get('ID');
   }
@@ -43,7 +48,7 @@ export class FormRegistrarActivoComponent implements OnInit {
 
   submitActivoForm(){
     if(this.activoForm.valid){
-      this.activoService.crearActivo(this.activoForm.value);
+      console.log("nada");
     }
     else{
     }
