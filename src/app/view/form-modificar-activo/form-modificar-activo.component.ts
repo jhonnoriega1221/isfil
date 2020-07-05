@@ -26,9 +26,9 @@ export class FormModificarActivoComponent implements OnInit {
   }
 
   activosForm(){
-    this.activoForm =    this.fb.group({
+    this.activoForm = this.fb.group({
       ID:['', [Validators.required]],
-      nombre:[this.texto, [Validators.required]],
+      nombre:['', [Validators.required]],
       cantidad:['',[Validators.required]]
     })
   } 
