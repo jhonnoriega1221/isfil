@@ -1,5 +1,5 @@
 export class Activo {
-    id: number;
+    ID: number;
     nombre: string;
     cantidad: number;
     descripcion: string;

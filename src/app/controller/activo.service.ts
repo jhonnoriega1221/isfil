@@ -13,8 +13,8 @@ export class ActivoService {
     return this.firestore.collection('activo').snapshotChanges();
   }
 
-  getActivo(activoId:number){
-    this.firestore.doc('activo/' +activoId).get();
+  getActivo(activoID:number){
+    this.firestore.doc('activo/' +activoID).get();
   }
 
   crearActivo(activo:Activo){
@@ -22,13 +22,12 @@ export class ActivoService {
     
   }
 
-  updateActivo(activo:Activo){
-    delete activo.id;
-    this.firestore.doc('activo/' + activo.id).update(activo);
+  updateActivo(activoId:string,activo:Activo){
+    this.firestore.doc('activo/' + activoId).update(activo);
   }
 
-  deleteActivo(activoId:number){
-    this.firestore.doc('activo/' + activoId).delete();
+  deleteActivo(activoID:number){
+    this.firestore.doc('activo/' + activoID).delete();
   }
 
 }

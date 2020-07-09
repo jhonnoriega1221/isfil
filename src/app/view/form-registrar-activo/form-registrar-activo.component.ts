@@ -41,6 +41,9 @@ export class FormRegistrarActivoComponent implements OnInit {
     return this.activoForm.get('cantidad');
   }
 
+
+
+
   submitActivoForm(){
     if(this.activoForm.valid){
       this.activoService.crearActivo(this.activoForm.value);

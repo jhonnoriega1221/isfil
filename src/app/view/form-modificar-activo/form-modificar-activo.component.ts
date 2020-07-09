@@ -10,15 +10,15 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 })
 export class FormModificarActivoComponent implements OnInit {
 
-  public activoForm: FormGroup;
+  public modActivoForm: FormGroup;
 
-
-  @Input() refActivo:Activo;
+  @Input() refActivo:Activo; //Variable obtenida por el padre (list-activo)
 
   constructor(
     private activoService: ActivoService,
-    public fb: FormBuilder
-  ) { }
+    public fb: FormBuilder,
+  ) { 
+  }
 
   ngOnInit(): void {
     this.activoService.getActivos();
@@ -26,31 +26,42 @@ export class FormModificarActivoComponent implements OnInit {
   }
 
   activosForm(){
-    this.activoForm = this.fb.group({
-      ID:['', [Validators.required]],
+    this.modActivoForm = this.fb.group({
+      ID:['', [Validators.required], []],
       nombre:['', [Validators.required]],
       cantidad:['',[Validators.required]]
     })
   } 
-
   
-  get id(){
-    return this.activoForm.get('ID');
+  get ID(){
+    return this.modActivoForm.get('ID');
   }
 
   get nombre(){
-    return this.activoForm.get('nombre');
+    return this.modActivoForm.get('nombre');
   }
 
   get cantActivo(){
-    return this.activoForm.get('cantidad');
+    return this.modActivoForm.get('cantidad');
   }
 
   submitActivoForm(){
-    if(this.activoForm.valid){
-      console.log("nada");
+    if(this.ID.value==''){
+      this.ID.setValue(this.refActivo.ID);
     }
-    else{
+
+    if(this.nombre.value==''){
+      this.nombre.setValue(this.refActivo.nombre);
     }
+
+    if(this.cantActivo.value==''){
+      this.cantActivo.setValue(this.refActivo.cantidad);
+    }
+
+    this.activoService.updateActivo(this.refActivo.id, this.modActivoForm.value);
+  
+    this.modActivoForm.setValue({ID:'',nombre:'',cantidad:''});
+
+
   }
 }

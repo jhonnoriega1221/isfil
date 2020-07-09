@@ -33,10 +33,6 @@ export class ListActivoComponent implements OnInit {
     this.activoService.crearActivo(activo);
   }
 
-  update (activo:Activo){
-    this.activoService.updateActivo(activo);
-  }
-
   delete (id:number){
     this.activoService.deleteActivo(id);
   }
