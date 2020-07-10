@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivoService } from '../../controller/activo.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { NotifierService } from 'angular-notifier';
+
 
 @Component({
   selector: 'app-form-registrar-activo',
@@ -9,12 +11,16 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 })
 export class FormRegistrarActivoComponent implements OnInit {
 
+  private readonly notifier: NotifierService;
   public activoForm: FormGroup;
 
   constructor(
     private activoService: ActivoService,
-    public fb: FormBuilder
-    ) { }
+    public fb: FormBuilder,
+    notifierService: NotifierService
+    ) {
+      this.notifier = notifierService;
+     }
 
   ngOnInit(): void {
     this.activoService.readActivos();
@@ -47,8 +53,10 @@ export class FormRegistrarActivoComponent implements OnInit {
   submitActivoForm(){
     if(this.activoForm.valid){
       this.activoService.crearActivo(this.activoForm.value);
+      this.notifier.notify('success','El activo se agregó exitosamente.')
     }
     else{
     }
   }
+
 }

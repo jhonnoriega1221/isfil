@@ -12,7 +12,9 @@ export class ListActivoComponent implements OnInit {
   activos: Activo[];
   refActivo: Activo;
 
-  constructor(private activoService: ActivoService) { }
+  constructor(private activoService: ActivoService) { 
+   
+  }
 
   ngOnInit(): void {
     this.activoService.readActivos().subscribe(data => {
@@ -36,5 +38,7 @@ export class ListActivoComponent implements OnInit {
   delete (id:number){
     this.activoService.deleteActivo(id);
   }
+
+
 
 }

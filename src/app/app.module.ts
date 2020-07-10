@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { ReactiveFormsModule} from'@angular/forms';
+import { NotifierModule } from 'angular-notifier';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
@@ -38,6 +39,20 @@ import { FormModificarActivoComponent } from './view/form-modificar-activo/form-
   ],
   imports: [
     BrowserModule,
+    NotifierModule.withConfig(
+      {
+        position:{
+            horizontal:{
+              position:'left',
+              distance: 12
+            },
+            vertical:{
+              position:'bottom',
+              distance:50
+            }
+        }
+      }
+    ),
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
