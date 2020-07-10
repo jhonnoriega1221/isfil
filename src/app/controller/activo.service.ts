@@ -9,7 +9,7 @@ export class ActivoService {
 
   constructor(private firestore: AngularFirestore) {  }
 
-  getActivos(){
+  readActivos(){
     return this.firestore.collection('activo').snapshotChanges();
   }
 

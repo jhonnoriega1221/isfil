@@ -29,7 +29,13 @@
             </div>
             <div class="modal-footer">
               
-              <button type="submit" class="btn btn-success mx-auto" data-toggle="modal" data-target="#vacioModal">Añadir</button>              
+              <!-- Aquí hay dos botones debido a que hubieron problemas con el evento que cierra el modal cuando se agrega un activo-->
+              <!-- Asi que para solucionar eso, mientras el form sea invalido, se oculta el boton que contiene el evento con el *ngIf-->
+              <!-- Para que al darle click, no se cierre el modal que contiene el form y asi se pueda completar los campos que faltan-->
+              <!-- Si el form es valido entonces se muestra el botón que contiene el evento para que se cierre el modal una vez se agregue el activo-->
+              <button *ngIf="activoForm.valid" onclick="$('.modal').modal('hide')" type="submit" class="btn btn-success mx-auto" data-toggle="modal" data-target="#vacioModal">Añadir</button>              
+              <button *ngIf="!activoForm.valid" type="submit" class="btn btn-success mx-auto" data-toggle="modal" data-target="#vacioModal">Añadir</button>              
+
             </div>
           </form>
           

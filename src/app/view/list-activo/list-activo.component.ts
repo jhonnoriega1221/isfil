@@ -15,7 +15,7 @@ export class ListActivoComponent implements OnInit {
   constructor(private activoService: ActivoService) { }
 
   ngOnInit(): void {
-    this.activoService.getActivos().subscribe(data => {
+    this.activoService.readActivos().subscribe(data => {
       this.activos = data.map(e => {
         return{
           id: e.payload.doc.id,

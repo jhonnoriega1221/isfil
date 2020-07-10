@@ -21,7 +21,7 @@ export class FormModificarActivoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activoService.getActivos();
+    this.activoService.readActivos();
     this.activosForm();
   }
 
