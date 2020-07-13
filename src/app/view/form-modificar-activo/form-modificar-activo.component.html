@@ -1,10 +1,10 @@
 <div class="modal fade" id="editFormModal" tabindex="-1" role="dialog" aria-labelledby="editarActivo" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div *ngIf="refActivo" class="modal-content" style="box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);">
+      <div *ngIf="selActivo" class="modal-content" style="box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);">
 
           <!--header-->
         <div class="modal-header">
-          <h5 class="modal-title" id="editarActivo">Editar activo {{refActivo.nombre}}</h5>
+          <h5 class="modal-title" id="editarActivo">Editar {{selActivo.nombre}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -13,18 +13,45 @@
         <!------form------->
         <div class="modal-body">
           <form [formGroup]="modActivoForm" (ngSubmit)="submitActivoForm()">
-            <div class="form-group">
-              <label for="idActivo">Id</label>
-              <input type="text" formControlName="ID" class="form-control" placeholder={{refActivo.ID}} required>
+            <div class="form-row">
+              <div class="col-sm-8 mb-3">
+                <label for="nombreActivo">Nombre</label>
+                <input type="text" formControlName="nombre" class="form-control" placeholder={{selActivo.nombre}} required>  
+              </div>
+              <div class="col-sm-4 mb-3">
+                <label for="cantActivo">Cantidad</label>
+                <input type="text" formControlName="cantidad" class="form-control"  placeholder={{selActivo.cantidad}} required>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="nombreActivo">Nombre</label>
-              <input type="text" formControlName="nombre" class="form-control" placeholder={{refActivo.nombre}} required>
+            <div class="form-row">
+              <div class="col-sm-6 mb-3">
+                <label for="estadoActivo">Estado</label>
+                <select formControlName="estado" class="custom-select" required>
+                  <option *ngIf="selActivo.estado==0" value="" >Excelente</option>
+                  <option *ngIf="selActivo.estado==1" value="" >Moderado</option>
+                  <option *ngIf="selActivo.estado==2" value="" >Regular</option>
+                  <option *ngIf="selActivo.estado==3" value="" >Deteriorado</option>
+                  <option *ngIf="selActivo.estado!=0" value="0">Excelente</option>
+                  <option *ngIf="selActivo.estado!=1" value="1">Moderado</option>
+                  <option *ngIf="selActivo.estado!=2" value="2">Regular</option>
+                  <option *ngIf="selActivo.estado!=3" value="3">Deteriorado</option>
+                  </select>
+              </div>
+              <div class="col-sm-6 mb-3">
+                <label for="En uso">En uso</label>
+                <select formControlName="inUse" class="custom-select" required>
+                    <option *ngIf="selActivo.inUse==0" value="">En desuso</option>
+                    <option *ngIf="selActivo.inUse==1" value="">En uso</option>
+                    <option *ngIf="selActivo.inUse!=0" value="0">En desuso</option>
+                    <option *ngIf="selActivo.inUse!=1" value="1">En uso</option>
+                </select>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="cantActivo">Cantidad</label>
-              <input type="text" formControlName="cantidad" class="form-control"  placeholder={{refActivo.cantidad}} required>
+            <div class="form-group mb-3">
+              <label for="descrActivo">Descripción</label>
+              <textarea formControlName="descripcion" placeholder="Descripción del activo..." class="form-control" name="descrActivo" cols="10" rows="5" placeholder="{{selActivo.descripcion}}"></textarea>
             </div>
+
             <div class="modal-footer">
               
               <button type="submit" class="btn btn-success mx-auto" data-toggle="modal" data-target="#vacioModal2">Añadir</button>              

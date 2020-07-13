@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivoService } from '../../controller/activo.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { NotifierService } from 'angular-notifier';
+import { Activo} from '../../model/activo.model';
 
 
 @Component({
@@ -11,9 +12,11 @@ import { NotifierService } from 'angular-notifier';
 })
 export class FormRegistrarActivoComponent implements OnInit {
 
-  private readonly notifier: NotifierService;
-  public activoForm: FormGroup;
+  activoNuevo=new Activo();
+  private readonly notifier: NotifierService; //Servicio de notificaciones
+  public activoForm: FormGroup; //Form de activos
 
+  //Se inyecta el servicio de notificaciones, el constructor de formularios y el servicio de activos
   constructor(
     private activoService: ActivoService,
     public fb: FormBuilder,
@@ -23,36 +26,46 @@ export class FormRegistrarActivoComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    this.activoService.readActivos();
+    this.activoService.obtenerActivos();
     this.activosForm();
   }
 
+  //Metodo que captura los datos de los campos del form
   activosForm(){
     this.activoForm = this.fb.group({
-      ID:['', [Validators.required]],
       nombre:['', [Validators.required]],
-      cantidad:['',[Validators.required]]
+      cantidad:['',[Validators.required]],
+      descripcion:['',[Validators.required]],
+      inUse:[this.activoNuevo.inUse],
+      estado:[this.activoNuevo.estado],
+      fechaRegistro:[this.activoNuevo.fechaRegistro],
+      dadoDeBaja:[this.activoNuevo.dadoDeBaja],
+      fechaDadoDeBaja:[this.activoNuevo.fechadadoBaja]
     })
   } 
 
-  get id(){
-    return this.activoForm.get('ID');
-  }
-
+  //Getters
   get nombre(){
     return this.activoForm.get('nombre');
   }
 
-  get cantActivo(){
+  get cantidad(){
     return this.activoForm.get('cantidad');
   }
 
+  get descripcion(){
+    return this.activoForm.get('descripcion');
+  }
 
-
-
+  //Submit activo que envia los activos al service para almacenarlos en la base de datos
   submitActivoForm(){
     if(this.activoForm.valid){
+     /* this.activoNuevo.nombre=this.activoForm.get('nombre').value;
+      this.activoNuevo.cantidad=this.activoForm.get('cantidad').value;
+      this.activoNuevo.descripcion=this.activoForm.get('descripcion').value;*/
+      
       this.activoService.crearActivo(this.activoForm.value);
+      this.activoForm.setValue({nombre:'',cantidad:'',descripcion:'',inUse:'',estado:'',fechaRegistro:'',dadoDeBaja:'',fechaDadoDeBaja:''});
       this.notifier.notify('success','El activo se agregó exitosamente.')
     }
     else{

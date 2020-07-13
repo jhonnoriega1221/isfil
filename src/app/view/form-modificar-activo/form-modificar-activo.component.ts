@@ -10,9 +10,9 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 })
 export class FormModificarActivoComponent implements OnInit {
 
-  public modActivoForm: FormGroup;
+  public modActivoForm: FormGroup; //Form de registrar activo
 
-  @Input() refActivo:Activo; //Variable obtenida por el padre (list-activo)
+  @Input() selActivo:Activo; //Variable obtenida por el padre (list-activo)
 
   constructor(
     private activoService: ActivoService,
@@ -21,47 +21,58 @@ export class FormModificarActivoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activoService.readActivos();
+    this.activoService.obtenerActivos();
     this.activosForm();
   }
 
   activosForm(){
     this.modActivoForm = this.fb.group({
-      ID:['', [Validators.required], []],
       nombre:['', [Validators.required]],
-      cantidad:['',[Validators.required]]
+      cantidad:['',[Validators.required]],
+      descripcion:['', [Validators.required]],
+      inUse:['',[Validators.required]],
+      estado:['', [Validators.required]]
     })
   } 
-  
-  get ID(){
-    return this.modActivoForm.get('ID');
-  }
+
 
   get nombre(){
     return this.modActivoForm.get('nombre');
   }
 
-  get cantActivo(){
+  get cantidad(){
     return this.modActivoForm.get('cantidad');
   }
 
-  submitActivoForm(){
-    if(this.ID.value==''){
-      this.ID.setValue(this.refActivo.ID);
-    }
-
-    if(this.nombre.value==''){
-      this.nombre.setValue(this.refActivo.nombre);
-    }
-
-    if(this.cantActivo.value==''){
-      this.cantActivo.setValue(this.refActivo.cantidad);
-    }
-
-    this.activoService.updateActivo(this.refActivo.id, this.modActivoForm.value);
+  get descripcion(){
+    return this.modActivoForm.get('descripcion');
+  }
   
-    this.modActivoForm.setValue({ID:'',nombre:'',cantidad:''});
+  get inUse(){
+    return this.modActivoForm.get('inUse');
+  }
+  
+  get estado(){
+    return this.modActivoForm.get('estado');
+  }
 
-
+  submitActivoForm(){
+   if(this.nombre.value!=''){
+      this.selActivo.nombre=this.nombre.value;
+    }
+    if(this.cantidad.value!=''){
+      this.selActivo.cantidad=this.cantidad.value;
+    }
+    if(this.descripcion.value!=''){
+      this.selActivo.descripcion=this.descripcion.value;
+    }
+    if(this.estado.value!=''){
+      this.selActivo.estado=this.estado.value;
+    }
+    if(this.inUse.value!=''){
+      this.selActivo.inUse=this.inUse.value;
+    }
+    this.activoService.updateActivo(this.selActivo.id, this.selActivo);
+    this.modActivoForm.setValue({nombre:'',cantidad:'',descripcion:'',inUse:'',estado:''});
   }
 }

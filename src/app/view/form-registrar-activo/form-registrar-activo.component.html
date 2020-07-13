@@ -15,17 +15,19 @@
         <div class="modal-body">
 
           <form [formGroup]="activoForm" (ngSubmit)="submitActivoForm()" novalidate>
-            <div class="form-group">
-              <label for="idActivo">Id</label>
-              <input type="text" formControlName="ID" class="form-control" placeholder="ID" required>
+            <div class="form-row">
+              <div class="col-sm-8 mb-3">
+                <label for="nombreActivo">Nombre</label>
+                <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre del activo" required>
+              </div>
+              <div class="col-sm-4 mb-3">
+                <label for="cantActivo">Cantidad</label>
+                <input type="number" formControlName="cantidad" class="form-control"  placeholder="Cantidad" required>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="nombreActivo">Nombre</label>
-              <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre del activo" required>
-            </div>
-            <div class="form-group">
-              <label for="cantActivo">Cantidad</label>
-              <input type="text" formControlName="cantidad" class="form-control"  placeholder="Cantidad del activo" required>
+            <div class="form-group mb-3">
+              <label for="descrActivo">Descripción</label>
+              <textarea formControlName="descripcion" placeholder="Descripción del activo..." class="form-control" name="descrActivo" cols="10" rows="5"></textarea>
             </div>
             <div class="modal-footer">
               
