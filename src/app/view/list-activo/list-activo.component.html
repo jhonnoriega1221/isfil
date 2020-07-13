@@ -7,8 +7,9 @@
   <div class="col-md-9">
   <p *ngIf="activos==0" class="emptyState" >Para registrar un activo, toca el botón de + o el botón "Agregar activo"</p>
 
-    <ul *ngFor="let activo of activos" class="list-group">
-      
+    <div *ngFor="let activo of activos">
+      <ul *ngIf="!activo.dadoDeBaja" class="list-group">
+
         <a [routerLink]="['/activos',activo.id]"  class="list-group-item list-group-item-action">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">{{activo.nombre}}
@@ -26,8 +27,8 @@
           <small>{{activo.descripcion}}</small>
         </a>
 
-
       </ul>
+    </div>
     </div>
     </div>
 

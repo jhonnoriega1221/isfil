@@ -41,8 +41,16 @@ selID;
       this.selActivo=selActivo;
     }
 
-    darDeBaja (id_Activo:string){
+    eliminarActivo (id_Activo:string){
       this.activoService.deleteActivo(id_Activo);
+      
+    }
+
+    darDeBaja(selActivo:Activo){
+      this.selActivo=selActivo;
+      this.selActivo.dadoDeBaja=true;
+      this.selActivo.fechadadoBaja=new Date();
+      this.activoService.updateActivo(this.selActivo.id, this.selActivo);
     }
 
 }

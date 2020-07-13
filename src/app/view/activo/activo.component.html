@@ -7,11 +7,11 @@
 
             <h2 class="font-weight-bold">{{activo.nombre}}</h2>
             <button (click)="obtenerActivo(activo)" type="button" data-toggle="modal" data-target="#editFormModal" class="btn btn-info btn-sm mr-3">Editar</button>
-            <button [routerLink]="['/activos']" (click)="darDeBaja(activo.id)" class="btn btn-danger btn-sm"> Dar de baja </button>
+            <button [routerLink]="['/activos']" (click)="darDeBaja(activo)" class="btn btn-danger btn-sm"> Dar de baja </button>
 
         </div>
         <div>
-            <div *ngIf="dadoDeBaja==1">
+            <div *ngIf="activo.dadoDeBaja">
                 <p>Este activo está dado de baja</p>
                 <p>Fue dado de baja el dia: {{ activo.fechadadoBaja.seconds * 1000 | date:'dd-MM-yyyy hh:mm'}}</p>
 

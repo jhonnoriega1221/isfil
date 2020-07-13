@@ -1,1 +1,39 @@
-<p>list-historial works!</p>
+<div class="container">
+  
+    <div class="row">
+      <div class="col-md-3">
+        <input type="text" placeholder="Buscar...">
+      </div>
+      <div class="col-md-9">
+      <p *ngIf="activos==0" class="emptyState" >No hay activos dados de baja"</p>
+    
+        <div *ngFor="let activo of activos" >
+          <ul *ngIf="activo.dadoDeBaja" class="list-group">
+
+          
+            <a [routerLink]="['/activos',activo.id]"  class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{activo.nombre}}
+                  <span *ngIf="activo.estado==0" class="badge badge-success">Excelente</span> 
+                  <span *ngIf="activo.estado==1" class="badge badge-warning">Moderado</span> 
+                  <span *ngIf="activo.estado==2" class="badge badge-warning">Regular</span> 
+                  <span *ngIf="activo.estado==3" class="badge badge-danger">Deteriorado</span> 
+    
+    
+                </h5>
+                <p>
+                  <span class="badge badge-primary">{{activo.cantidad}}</span> 
+                </p>
+              </div>
+              <small>{{activo.descripcion}}</small>
+            </a>
+          </ul>
+    
+        </div>
+        </div>
+        </div>
+    
+          <app-form-modificar-activo [selActivo]="selActivo"></app-form-modificar-activo>
+    
+        
+    </div>
