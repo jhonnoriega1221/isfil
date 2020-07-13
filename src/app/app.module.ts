@@ -24,6 +24,7 @@ import { ListHistorialComponent } from './view/list-historial/list-historial.com
 import { SignInComponent } from './view/sign-in/sign-in.component';
 import { initializeApp } from 'firebase';
 import { FormModificarActivoComponent } from './view/form-modificar-activo/form-modificar-activo.component';
+import { ActivoComponent } from './view/activo/activo.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { FormModificarActivoComponent } from './view/form-modificar-activo/form-
     ListHistorialComponent,
     FormRegistrarActivoComponent,
     SignInComponent,
-    FormModificarActivoComponent
+    FormModificarActivoComponent,
+    ActivoComponent
   ],
   imports: [
     BrowserModule,

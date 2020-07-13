@@ -1,0 +1,40 @@
+<div  class="container">
+    <div *ngFor="let activo of activos">
+        <div *ngIf="activo.id == selID">
+
+
+        <div>
+
+            <h2 class="font-weight-bold">{{activo.nombre}}</h2>
+            <button (click)="obtenerActivo(activo)" type="button" data-toggle="modal" data-target="#editFormModal" class="btn btn-info btn-sm mr-3">Editar</button>
+            <button [routerLink]="['/activos']" (click)="darDeBaja(activo.id)" class="btn btn-danger btn-sm"> Dar de baja </button>
+
+        </div>
+        <div>
+            <div *ngIf="dadoDeBaja==1">
+                <p>Este activo está dado de baja</p>
+                <p>Fue dado de baja el dia: {{ activo.fechadadoBaja.seconds * 1000 | date:'dd-MM-yyyy hh:mm'}}</p>
+
+            </div>
+
+            <p>Cantidad: {{activo.cantidad}}</p>
+            
+            <p *ngIf="activo.estado==0">Estado: Excelente</p>
+            <p *ngIf="activo.estado==1">Estado: Moderado</p>
+            <p *ngIf="activo.estado==2">Estado: Regular</p>
+            <p *ngIf="activo.estado==3">Estado: Deteriorado</p>
+
+            <p *ngIf="activo.inUse==0">En uso: No</p>
+            <p *ngIf="activo.inUse==1">En uso: Si</p>
+
+            <p>Fecha agregada: {{ activo.fechaRegistro.seconds * 1000 | date:'dd-MM-yyyy hh:mm'}}</p>
+
+            <p>Descripción: {{activo.descripcion}}</p>
+
+        </div>
+
+
+        </div>
+    </div>
+          <app-form-modificar-activo [selActivo]="selActivo"></app-form-modificar-activo>
+</div>

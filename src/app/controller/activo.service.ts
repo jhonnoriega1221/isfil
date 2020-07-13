@@ -34,4 +34,5 @@ export class ActivoService {
     this.firestore.doc('activo/' + id_Activo).delete();
   }
 
+
 }
