@@ -1,5 +1,3 @@
-import { time } from 'console';
-
 export class Activo {
     nombre: string;
     cantidad: number;
