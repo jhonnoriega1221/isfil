@@ -2,15 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../controller/auth.service';
 
 @Component({
-  selector: 'app-sign-in',
-  templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.css']
+  selector: 'app-list-usuarios',
+  templateUrl: './list-usuarios.component.html',
+  styleUrls: ['./list-usuarios.component.css']
 })
-
-export class SignInComponent implements OnInit {
+export class ListUsuariosComponent implements OnInit {
 
   constructor(
+
     public authService:AuthService
+
   ) { }
 
   ngOnInit(): void {
