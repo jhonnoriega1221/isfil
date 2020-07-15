@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../controller/auth.service';
+import { UsuarioService} from '../../controller/usuario.service';
+import { Usuario } from 'src/app/model/usuario.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,11 +11,23 @@ import { AuthService } from '../../controller/auth.service';
 
 export class SignUpComponent implements OnInit {
 
+  usuarios: Usuario[];
+
   constructor(
-    public authService:AuthService
+    public usuarioService:UsuarioService,
+    public router:Router
+
   ) { }
 
   ngOnInit(): void {
+  }
+
+
+  registrarUsuario(email:string,realName:string,surname:string,userName:string,pwd:string){
+    let usuario:Usuario = {email:email, contraseña:pwd, username:userName,nombres:realName,apellidos:surname,admin:false}
+    this.usuarioService.crearUsuario(usuario);
+    this.router.navigate(['/usuarios']);
+
   }
 
 }

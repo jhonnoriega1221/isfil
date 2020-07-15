@@ -9,5 +9,5 @@
             <label>Contraseña</label>
             <input type="password" class="form-control" placeholder="Contraseña" #userPassword required>
           </div>
-          <input type="button" class="btn btn-primary" value="Ingresar" (click)="authService.SignIn(userEmail.value, userPassword.value)">
+          <input type="button" class="btn btn-primary" value="Ingresar" (click)="iniciarSesion(userEmail.value, userPassword.value)">
 </div>

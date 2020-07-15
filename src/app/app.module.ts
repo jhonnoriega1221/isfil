@@ -15,7 +15,6 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { environment } from '../environments/environment';
 
-import { AuthService } from './controller/auth.service';
 
 import { NavbarComponent } from './view/navbar/navbar.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
@@ -29,6 +28,7 @@ import { FormModificarActivoComponent } from './view/form-modificar-activo/form-
 import { ActivoComponent } from './view/activo/activo.component';
 import { SignUpComponent } from './view/sign-up/sign-up.component';
 import { ListUsuariosComponent } from './view/list-usuarios/list-usuarios.component';
+import { UsuarioComponent } from './view/usuario/usuario.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,8 @@ import { ListUsuariosComponent } from './view/list-usuarios/list-usuarios.compon
     FormModificarActivoComponent,
     ActivoComponent,
     SignUpComponent,
-    ListUsuariosComponent
+    ListUsuariosComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +71,6 @@ import { ListUsuariosComponent } from './view/list-usuarios/list-usuarios.compon
     AngularFirestoreModule  
 
   ],
-  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

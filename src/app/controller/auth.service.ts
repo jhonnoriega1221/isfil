@@ -1,9 +1,10 @@
-import { Injectable, NgZone } from '@angular/core';
-import { Usuario } from '../model/usuario.model';
+/*import { Injectable, NgZone } from '@angular/core';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { Usuario } from '../model/usuario.model';
+import { UsuarioService } from './usuario.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +17,11 @@ export class AuthService {
     public afs: AngularFirestore, //Servicios de Firestore
     public afAuth: AngularFireAuth, //Servicios de Firebase Auth
     public router:Router,
-    public ngZone: NgZone //Servicio NgZone para remover fuera de la lupa
+    public ngZone: NgZone, //Servicio NgZone para remover fuera de la lupa
+    private firestore: AngularFirestore
   ) {
     /*Almacenar la información en LocalStorage cuando se inicie la sesión
-    y colocarla null cuando se cierre la sesión*/
+    y colocarla null cuando se cierre la sesión
     this.afAuth.authState.subscribe(user => {
       if(user){
         this.userData = user;
@@ -35,19 +37,21 @@ export class AuthService {
       this.ngZone.run(() => {
         this.router.navigate(['dashboard']);
       });
-      this.SetUserData(result.user);
+      //this.SetUserData2(result.user);
     }).catch((error) => {
       window.alert(error.message)
     })
   }
 
   //Registrar con email y contraseña
-  SignUp(email, password){
+  SignUp(email, password, nombre){
+    
     return this.afAuth.createUserWithEmailAndPassword(email,password).then((result) => {
-      this.SetUserData(result.user);
+      this.SetUserData(result.user,nombre);
     }).catch((error) => {
       window.alert(error.message)
     })
+
   }
 
   // Retorna true cuando el usuario haya ingresado
@@ -68,19 +72,18 @@ export class AuthService {
     })
   }
 
-  /*Almacena la información de los usuarios registrados, y los que hayan ingresado
+  Almacena la información de los usuarios registrados, y los que hayan ingresado
   por algun proveedor de autenticación externo como Google o Facebook en la base de datos
-  de firestore*/
-  SetUserData(user){
+  de firestore
+  SetUserData(user, nombre){
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`usuario/${user.uid}`);
     const userData: Usuario = {
       uid: user.uid,
       email: user.email,
+      nombre: nombre,
       role: 1
     }
-    return userRef.set(userData,{ 
-      merge:true
-    })
+    return userRef.set(userData)
   }
 
   //Cerrar sesion
@@ -90,4 +93,24 @@ export class AuthService {
       this.router.navigate(['signin']);
     })
   }
-}
+
+  obtenerUsuarios(){
+    return this.firestore.collection('activo').snapshotChanges();
+  }
+
+  updateUsuario(id_usuario:string,usuario:Usuario){
+    this.firestore.doc('usuario/' + id_usuario).update(usuario);
+  }
+
+  loguear(usuario:Usuario){
+    
+  }
+  
+  deleteUsuario(id_usuario:string){
+    
+    this.firestore.doc('usuario/' + id_usuario).delete();
+  }
+
+
+
+}*/

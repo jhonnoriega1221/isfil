@@ -1,10 +1,5 @@
 <div class="container">
   
-    <div class="row">
-      <div class="col-md-3">
-        <input type="text" placeholder="Buscar...">
-      </div>
-      <div class="col-md-9">
       <p *ngIf="activos==0" class="emptyState" >No hay activos dados de baja"</p>
     
         <div *ngFor="let activo of activos" >
@@ -29,8 +24,6 @@
             </a>
           </ul>
     
-        </div>
-        </div>
         </div>
     
           <app-form-modificar-activo [selActivo]="selActivo"></app-form-modificar-activo>

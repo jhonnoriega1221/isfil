@@ -1,10 +1,5 @@
 <div class="container">
   
-<div class="row">
-  <div class="col-md-3">
-    <input type="text" placeholder="Buscar...">
-  </div>
-  <div class="col-md-9">
   <p *ngIf="activos==0" class="emptyState" >Para registrar un activo, toca el botón de + o el botón "Agregar activo"</p>
 
     <div *ngFor="let activo of activos">
@@ -17,8 +12,6 @@
               <span *ngIf="activo.estado==1" class="badge badge-warning">Moderado</span> 
               <span *ngIf="activo.estado==2" class="badge badge-warning">Regular</span> 
               <span *ngIf="activo.estado==3" class="badge badge-danger">Deteriorado</span> 
-
-
             </h5>
             <p>
               <span class="badge badge-primary">{{activo.cantidad}}</span> 
@@ -29,8 +22,7 @@
 
       </ul>
     </div>
-    </div>
-    </div>
+  
 
       <app-form-modificar-activo [selActivo]="selActivo"></app-form-modificar-activo>
 

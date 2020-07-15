@@ -7,10 +7,14 @@
         <a [routerLink]="['/usuarios']" routerLinkActive="active">Usuarios</a>
         <div class="topnav-right">
             <a type="button" class="top-add" data-toggle="modal" data-target="#addFormModal" >Agregar Activo</a>
+            
+            <a (click)="cerrarSesion()"  *ngIf="usuarioService.estaLogueado" >
+                <p class="username">{{usuarioService.usuarioIngresado.nombres   }} {{usuarioService.usuarioIngresado.apellidos}}</p>
+                <img *ngIf="usuarioService.estaLogueado" src="assets/images/img_avatar.png" alt="profpic" class="avatar">
+            </a>
 
-            <a [routerLink]="['/signin']">
+            <a *ngIf="!usuarioService.estaLogueado" [routerLink]="['/signin']">
                 <p class="username">Ingresar</p>
-                <img src="assets/images/img_avatar.png" alt="profpic" class="avatar">
             </a>
         </div>
     </nav>

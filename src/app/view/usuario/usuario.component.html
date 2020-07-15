@@ -1,0 +1,18 @@
+<div class="container">
+    <div *ngFor="let usuario of usuarios">
+        <div *ngIf="selID==usuario.id">
+
+    <div>
+    <h2 class="mb-3">{{usuario.nombres}} {{usuario.apellidos}}</h2>
+   </div>
+   
+   <div>
+       <p>Correo: {{usuario.email}}</p>
+       <p>nombre de usuario: {{usuario.username}}</p>
+       <p *ngIf="usuario.admin">Este usuario es administrador</p>
+       <button *ngIf="!(usuario.id == usuarioService.usuarioIngresado.id)" [routerLink]="['/activos']" (click)="eliminarUsuario(usuario.id)" class="btn btn-danger btn-sm mt-3"> Eliminar usuario </button>
+
+   </div>
+</div>
+</div>
+</div>

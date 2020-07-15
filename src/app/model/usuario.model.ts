@@ -1,5 +1,8 @@
 export class Usuario {
-    uid: string;
     email: string;
-    role = 1;
+    contraseña: string;
+    username: string;
+    nombres: string;
+    apellidos: string;
+    admin = false;
 }
