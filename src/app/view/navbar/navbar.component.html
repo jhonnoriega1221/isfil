@@ -3,8 +3,8 @@
     <nav class="topnav">
         <a [routerLink]="['/dashboard']" routerLinkActive="active">Dashboard</a>
         <a [routerLink]="['/activos']" routerLinkActive="active">Activos</a>
-        <a [routerLink]="['/historial']" routerLinkActive="active">Historial</a>
-        <a [routerLink]="['/usuarios']" routerLinkActive="active">Usuarios</a>
+        <a *ngIf="usuarioService.estaLogueado" [routerLink]="['/historial']" routerLinkActive="active">Historial</a>
+        <a *ngIf="usuarioService.usuarioIngresado.admin" [routerLink]="['/usuarios']" routerLinkActive="active">Usuarios</a>
         <div class="topnav-right">
             <a type="button" class="top-add" data-toggle="modal" data-target="#addFormModal" >Agregar Activo</a>
             
