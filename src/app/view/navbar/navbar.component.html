@@ -1,6 +1,7 @@
 <nav>
     <!------------------------------------BARRA SUPERIOR--------------------------------------->
     <nav class="topnav">
+        <h4 class="logo font-weight-bold">ISFIL</h4>
         <a [routerLink]="['/dashboard']" routerLinkActive="active">Dashboard</a>
         <a [routerLink]="['/activos']" routerLinkActive="active">Activos</a>
         <a *ngIf="usuarioService.estaLogueado" [routerLink]="['/historial']" routerLinkActive="active">Historial</a>
@@ -23,7 +24,7 @@
         <a [routerLink]="['/dashboard']" routerLinkActive="active"><i class="fa fa-line-chart"></i><p>Dashboard</p></a>
         <a [routerLink]="['/activos']" routerLinkActive="active"><i class="fa fa-list"></i><p>Activos</p></a>
         <a *ngIf="usuarioService.estaLogueado" [routerLink]="['/historial']" routerLinkActive="active"><i class="fa fa-history"></i><p>Historial</p></a>
-        <a *ngIf="usuarioService.admin" [routerLink]="['/usuarios']" routerLinkActive="active"><i class="fa fa-users"></i><p>Usuarios</p></a>
+        <a *ngIf="usuarioService.estaLogueado && usuarioService.usuarioIngresado.admin" [routerLink]="['/usuarios']" routerLinkActive="active"><i class="fa fa-users"></i><p>Usuarios</p></a>
         <button *ngIf="usuarioService.estaLogueado" type="button" class="fab-add" data-toggle="modal" data-target="#addFormModal" >+</button>
         <a></a> <!-- <---------------------------IGNORAR ESTE a--------------------------->
     </nav>

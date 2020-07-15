@@ -18,6 +18,11 @@ export class UsuarioService {
     return this.firestore.collection('usuario').snapshotChanges();
   }
 
+  deleteUsuario(id_usuario:string){
+    this.firestore.doc('usuario/' + id_usuario).delete();
+    
+  }
+
   get usuarioIngresado(){
     let datos = JSON.parse(localStorage.getItem('usuario'));
     return datos;
@@ -28,9 +33,6 @@ export class UsuarioService {
       return (user !== null) ? true : false;
     }
   
-    deleteActivo(id_usuario:string){
-      this.firestore.doc('usuario/' + id_usuario).delete();
-      
-    }
+
 
 }

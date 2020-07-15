@@ -30,6 +30,13 @@
     font-size: 17px;
     transition: all 0.2s ease;
 }
+.topnav .logo{
+    float: left;
+    display: block;
+    margin: 10px 5px;
+    text-align: center;
+    padding: 5px 10px;
+}
 
 /*Estilo del boton de añadir en la top-bar*/
 .topnav .top-add{
@@ -130,7 +137,7 @@
 }
 
 /*-----------------------BREAKPOINT--------------------------*/
-@media screen and (max-width: 600px){
+@media screen and (max-width: 720px){
     .bottomnav a:not(:last-child){
         display: block;
     }
