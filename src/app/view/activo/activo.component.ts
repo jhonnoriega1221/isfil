@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivoService } from '../../controller/activo.service';
 import { ActivatedRoute } from '@angular/router';
 import { Activo } from '../../model/activo.model';
+import { UsuarioService } from '../../controller/usuario.service';
+import { Usuario } from 'src/app/model/usuario.model';
 
 @Component({
   selector: 'app-activo',
@@ -17,6 +19,7 @@ selID;
   constructor(
     private activoService:ActivoService,
     private ruta:ActivatedRoute,
+    private usuarioService:UsuarioService
   ) { 
     this.ruta.params.subscribe(params=>{
       this.selID=params['id'];
