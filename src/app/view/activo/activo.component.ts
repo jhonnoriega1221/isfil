@@ -3,6 +3,7 @@ import { ActivoService } from '../../controller/activo.service';
 import { ActivatedRoute } from '@angular/router';
 import { Activo } from '../../model/activo.model';
 import { UsuarioService } from '../../controller/usuario.service';
+import { NotifierService } from 'angular-notifier';
 import { Usuario } from 'src/app/model/usuario.model';
 
 @Component({
@@ -12,6 +13,7 @@ import { Usuario } from 'src/app/model/usuario.model';
 })
 export class ActivoComponent implements OnInit {
 
+private readonly notifier:NotifierService;
 activos:Activo[];
 selActivo:Activo;
 selID;
@@ -19,12 +21,14 @@ selID;
   constructor(
     private activoService:ActivoService,
     private ruta:ActivatedRoute,
-    public usuarioService:UsuarioService
+    public usuarioService:UsuarioService,
+    notifierService:NotifierService
   ) { 
     this.ruta.params.subscribe(params=>{
       this.selID=params['id'];
     })
-    
+    this.notifier = notifierService;
+
     
   }
 
@@ -56,6 +60,7 @@ selID;
       this.selActivo.fechadadoBaja=new Date();
       //@ts-ignore
       this.activoService.updateActivo(this.selActivo.id, this.selActivo);
+      this.notifier.notify('default', 'Activo dado de baja.')
     }
 
 }

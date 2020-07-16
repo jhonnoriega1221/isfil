@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../controller/usuario.service';
 import { Router } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-navbar',
@@ -9,10 +10,15 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+private readonly notifier:NotifierService;
+
   constructor(
     public usuarioService:UsuarioService,
-    public router:Router
-  ) { }
+    public router:Router,
+    notifierService:NotifierService
+  ) { 
+    this.notifier = notifierService;
+  }
 
   ngOnInit(): void {
   }
@@ -20,6 +26,7 @@ export class NavbarComponent implements OnInit {
   cerrarSesion(){
     localStorage.removeItem('usuario');
     this.router.navigate(['signin']);
+    this.notifier.notify('default', 'Sesión cerrada')
   }
   
 }

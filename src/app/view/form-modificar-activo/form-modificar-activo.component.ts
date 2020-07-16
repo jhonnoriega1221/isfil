@@ -2,6 +2,7 @@ import { Component, OnInit, Input, RendererFactory2 } from '@angular/core';
 import { ActivoService } from '../../controller/activo.service';
 import { Activo } from '../../model/activo.model';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-form-modificar-activo',
@@ -11,13 +12,15 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 export class FormModificarActivoComponent implements OnInit {
 
   public modActivoForm: FormGroup; //Form de registrar activo
-
+  private readonly notifier:NotifierService;
   @Input() selActivo:Activo; //Variable obtenida por el padre (list-activo)
 
   constructor(
     private activoService: ActivoService,
     public fb: FormBuilder,
-  ) { 
+    notifierService:NotifierService
+  ) {
+    this.notifier = notifierService; 
   }
 
   ngOnInit(): void {
@@ -75,5 +78,6 @@ export class FormModificarActivoComponent implements OnInit {
     //@ts-ignore
     this.activoService.updateActivo(this.selActivo.id, this.selActivo);
     this.modActivoForm.setValue({nombre:'',cantidad:'',descripcion:'',inUse:'',estado:''});
+    this.notifier.notify('success','Activo modificado exitosamente.')
   }
 }

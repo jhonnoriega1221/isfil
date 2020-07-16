@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService} from '../../controller/usuario.service';
 import { Usuario } from 'src/app/model/usuario.model';
 import { Router } from '@angular/router';
-
+import { NotifierService } from 'angular-notifier';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -12,11 +12,16 @@ import { Router } from '@angular/router';
 export class SignInComponent implements OnInit {
 
   usuarios: Usuario[];
+  private readonly notifier: NotifierService
+
 
   constructor(
     public usuarioService:UsuarioService,
-    public router:Router
-  ) { }
+    public router:Router,
+    notifierService:NotifierService
+  ) { 
+    this.notifier = notifierService;
+  }
 
   ngOnInit(): void {
     this.usuarioService.obtenerUsuarios().subscribe(data => {
@@ -37,6 +42,7 @@ export class SignInComponent implements OnInit {
         console.log('Bienvenido :)');
         localStorage.setItem('usuario', JSON.stringify(this.usuarios[i]));
         this.router.navigate(['/dashboard']);
+        this.notifier.notify('default','Sesión iniciada como '+this.usuarios[i].nombres+' '+this.usuarios[i].apellidos );
         return true;
         }
         
