@@ -9,6 +9,7 @@ import { Activo } from '../../model/activo.model';
 })
 export class ListHistorialComponent implements OnInit {
 
+ 
   activos: Activo[]; //Se crea un array de activos que se obtendran de la base de datos y se almacenarán en memoria.
   selActivo: Activo; //Activo seleccionado.
 
@@ -21,6 +22,7 @@ export class ListHistorialComponent implements OnInit {
       this.activos = data.map(e => {
         return{
           id: e.payload.doc.id,
+          //@ts-ignore
           ...e.payload.doc.data()
         } as Activo;
       })

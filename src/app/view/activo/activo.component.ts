@@ -19,7 +19,7 @@ selID;
   constructor(
     private activoService:ActivoService,
     private ruta:ActivatedRoute,
-    private usuarioService:UsuarioService
+    public usuarioService:UsuarioService
   ) { 
     this.ruta.params.subscribe(params=>{
       this.selID=params['id'];
@@ -33,6 +33,7 @@ selID;
       this.activos = data.map(e => {
         return{
           id: e.payload.doc.id,
+          //@ts-ignore
           ...e.payload.doc.data()
         } as Activo;
       })
@@ -53,6 +54,7 @@ selID;
       this.selActivo=selActivo;
       this.selActivo.dadoDeBaja=true;
       this.selActivo.fechadadoBaja=new Date();
+      //@ts-ignore
       this.activoService.updateActivo(this.selActivo.id, this.selActivo);
     }
 

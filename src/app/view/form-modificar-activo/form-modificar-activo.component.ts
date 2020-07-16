@@ -72,6 +72,7 @@ export class FormModificarActivoComponent implements OnInit {
     if(this.inUse.value!=''){
       this.selActivo.inUse=this.inUse.value;
     }
+    //@ts-ignore
     this.activoService.updateActivo(this.selActivo.id, this.selActivo);
     this.modActivoForm.setValue({nombre:'',cantidad:'',descripcion:'',inUse:'',estado:''});
   }

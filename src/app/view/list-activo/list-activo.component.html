@@ -1,6 +1,6 @@
 <div class="container">
   
-  <p *ngIf="activos==0" class="emptyState" >Para registrar un activo, toca el botón de + o el botón "Agregar activo"</p>
+  <p *ngIf="activos.length==0" class="emptyState" >Para registrar un activo, toca el botón de + o el botón "Agregar activo"</p>
 
     <div *ngFor="let activo of activos">
       <ul *ngIf="!activo.dadoDeBaja" class="list-group">

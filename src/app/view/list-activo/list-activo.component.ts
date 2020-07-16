@@ -4,6 +4,7 @@ import { Activo } from '../../model/activo.model';
 
 @Component({
   selector: 'app-list-activo',
+    //@ts-ignore
   templateUrl: './list-activo.component.html',
   styleUrls: ['./list-activo.component.css']
 })
@@ -21,6 +22,7 @@ export class ListActivoComponent implements OnInit {
       this.activos = data.map(e => {
         return{
           id: e.payload.doc.id,
+          //@ts-ignore
           ...e.payload.doc.data()
         } as Activo;
       })

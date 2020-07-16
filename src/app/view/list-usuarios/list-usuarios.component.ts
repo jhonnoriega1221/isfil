@@ -23,6 +23,7 @@ export class ListUsuariosComponent implements OnInit {
       this.usuarios = data.map(e => {
         return{
           id: e.payload.doc.id,
+          //@ts-ignore
           ...e.payload.doc.data()
         } as Usuario;
       })
