@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Usuario } from '../model/usuario.model';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
 
-  constructor(private firestore: AngularFirestore, public router:Router) {  }
+  constructor(private firestore: AngularFirestore) {
+
+  }
 
   crearUsuario(usuario:Usuario){
     return this.firestore.collection('usuario').add(usuario);
@@ -18,7 +19,7 @@ export class UsuarioService {
     return this.firestore.collection('usuario').snapshotChanges();
   }
 
-  deleteUsuario(id_usuario:string){
+  eliminarUsuario(id_usuario:string){
     this.firestore.doc('usuario/' + id_usuario).delete();
     
   }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivoService } from '../../controller/activo.service';
+import { Activo } from '../../model/activo.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+activos:Activo[];
+
+  constructor(private activoService:ActivoService) { }
 
   ngOnInit(): void {
+    this.activoService.obtenerActivos().subscribe(data => {
+      this.activos = data.map(e => {
+        return{
+          id: e.payload.doc.id,
+          //@ts-ignore
+          ...e.payload.doc.data()
+        } as Activo;
+      })
+    });
   }
 
 }

@@ -29,10 +29,10 @@ export class ActivoService {
     this.firestore.doc('activo/' + id_Activo).update(activo);
   }
 
-  //Metodo que sirve para eliminar un activo de la base de datos.
+ /* //Metodo que sirve para eliminar un activo de la base de datos.
   deleteActivo(id_Activo:string){
     this.firestore.doc('activo/' + id_Activo).delete();
-  }
+  }*/
 
 
 }

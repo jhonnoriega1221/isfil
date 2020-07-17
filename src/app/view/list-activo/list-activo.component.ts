@@ -39,11 +39,6 @@ export class ListActivoComponent implements OnInit {
     this.activoService.crearActivo(activo);
   }
 
-  //Elimina el activo de la lista principal para pasarlo al historial.
-  darDeBaja (id_Activo:string){
-    this.activoService.deleteActivo(id_Activo);
-  }
-
 
 
 }

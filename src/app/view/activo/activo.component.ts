@@ -49,10 +49,6 @@ selID;
       this.selActivo=selActivo;
     }
 
-    eliminarActivo (id_Activo:string){
-      this.activoService.deleteActivo(id_Activo);
-      
-    }
 
     darDeBaja(selActivo:Activo){
       this.selActivo=selActivo;

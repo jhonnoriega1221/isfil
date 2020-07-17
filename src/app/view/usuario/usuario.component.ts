@@ -41,7 +41,7 @@ export class UsuarioComponent implements OnInit {
   }
 
   eliminarUsuario (id_Usuario:string){
-    this.usuarioService.deleteUsuario(id_Usuario);
+    this.usuarioService.eliminarUsuario(id_Usuario);
     
     this.router.navigate(['/usuarios']);
     this.notifier.notify('default', 'El usuario ha sido eliminado exitosamente.')
